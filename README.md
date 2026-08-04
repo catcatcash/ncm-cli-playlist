@@ -4,6 +4,58 @@ A small agent-native content-operations CLI for NetEase Cloud Music.
 
 The write path delegates to the authenticated official `@music163/ncm-cli@0.1.6` command registry. It does **not** replay browser cookies or the old `/api/playlist/*` write endpoints.
 
+## 简体中文
+
+这是一个面向网易云音乐的**自动化内容运营 CLI**。当前先解决最核心的内容发布链路：把一份经过策划和校验的场景化 100 首歌单 manifest，发布成真实网易云歌单，并回读验证结果。
+
+### 当前能力
+
+- 使用官方 `@music163/ncm-cli@0.1.6` 完成登录检查、创建歌单、批量加歌、排序、修改标题/简介/标签和上传封面；
+- 使用 JSON manifest 管理歌单内容；
+- 发布前支持 `--dry-run`；
+- 校验标题、简介、标签、封面，以及 100 首唯一加密歌曲 ID；
+- 发布后同时通过 CLI 和匿名公开接口回读歌单数量与元数据；
+- 不重放浏览器 Cookie，也不把凭证写入项目。
+
+### 场景化 100 首歌单格式
+
+标题使用：
+
+```text
+主题名｜并列音乐类别
+```
+
+例如：
+
+```text
+褪色的夜行｜爵士嘻哈 梦泡 硬地 ACG
+```
+
+竖线前是场景和情绪，竖线后是音乐类别。`城市漂流`、`夜间陪伴`等词属于策展场景，不冒充音乐类型。简介按以下顺序写：**情绪钩子 → 选歌逻辑 → 音乐科普**。
+
+### 快速开始
+
+```bash
+python3 -m venv .venv
+. .venv/bin/activate
+pip install -e .
+npm install -g @music163/ncm-cli@0.1.6
+ncm-cli login --check --output json
+```
+
+先预览，再发布：
+
+```bash
+cli-anything-ncm-playlist --json playlist publish \
+  --manifest scenario-100.json \
+  --dry-run
+
+cli-anything-ncm-playlist --json playlist publish \
+  --manifest scenario-100.json
+```
+
+项目内的可复用规则见 [`skills/netease-content-ops/SKILL.md`](skills/netease-content-ops/SKILL.md)。当前范围是可靠的歌单内容发布，暂不自动化评论、刷播放/收藏或定时营销。
+
 ## What it does
 
 - check the exact CLI login session;
