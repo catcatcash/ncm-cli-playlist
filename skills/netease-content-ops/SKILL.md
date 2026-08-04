@@ -29,9 +29,9 @@ For scenario playlists, the text before `｜` is the emotional scene/theme. The 
 
 Keep the description short and human, in this order:
 
-1. **Emotional hook** — one sentence or short paragraph that makes the listening scene felt.
+1. **Emotional hook** — one sentence or short paragraph that makes the listening scene felt. A short, source-attributed public-domain literary/film line or a user-provided quote may open the paragraph; do not use a long copyrighted excerpt.
 2. **Selection logic** — where the sequence starts, how it moves, and what boundary it uses.
-3. **Music context** — a concise explanation of the relevant genre lineage or production aesthetic.
+3. **Music context** — a concise explanation of the actual styles in the title and tracklist, such as jazz-hop, dream pop, hard-edged indie/alternative, or ACG soundtrack practice; do not paste generic lofi history unrelated to the playlist.
 
 Avoid generic AI openings, inflated claims, and long source disclaimers.
 
