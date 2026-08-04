@@ -4,6 +4,8 @@ A small agent-native content-operations CLI for NetEase Cloud Music.
 
 The write path delegates to the authenticated official `@music163/ncm-cli@0.1.6` command registry. It does **not** replay browser cookies or the old `/api/playlist/*` write endpoints.
 
+The project follows the CLI-Anything harness layout and agent-safe conventions, but is a small custom Click application rather than the official CLI-Anything runtime.
+
 ## 简体中文
 
 这是一个面向网易云音乐的**自动化内容运营 CLI**。当前先解决最核心的内容发布链路：把一份经过策划和校验的场景化 100 首歌单 manifest，发布成真实网易云歌单，并回读验证结果。

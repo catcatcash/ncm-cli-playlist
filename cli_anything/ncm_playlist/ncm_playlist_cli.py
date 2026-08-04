@@ -8,6 +8,7 @@ from typing import Callable
 
 import click
 
+from . import __version__
 from .core.client import NeteaseAPIError, NeteaseClient, parse_cookie_header
 from .core.official_cli import (
     OfficialNcmCli,
@@ -50,6 +51,7 @@ def official_from(ctx: click.Context) -> OfficialNcmCli:
 
 
 @click.group(invoke_without_command=True)
+@click.version_option(version=__version__)
 @click.option("--json", "json_output", is_flag=True, help="Emit machine-readable JSON.")
 @click.option("--cookie", envvar="NETEASE_COOKIE", help="Cookie for public/read compatibility only; never commit it.")
 @click.option("--base-url", envvar="NETEASE_BASE_URL", default="https://music.163.com", show_default=True)
