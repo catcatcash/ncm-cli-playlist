@@ -1,9 +1,8 @@
 """Small requests-based client for the NetEase web API."""
 from __future__ import annotations
 
-import json
 import os
-from typing import Any, Iterable
+from typing import Any
 
 import requests
 
@@ -127,57 +126,6 @@ class NeteaseClient:
         songs = (payload.get("result") or {}).get("songs") or []
         return [self._song_summary(song) for song in songs]
 
-    def create_playlist(
-        self,
-        name: str,
-        description: str = "",
-        tags: Iterable[str] = (),
-        private: bool = False,
-    ) -> dict[str, Any]:
-        self._require_cookie()
-        payload = self._request(
-            "/api/playlist/create",
-            method="POST",
-            data={
-                "name": name,
-                "privacy": 10 if private else 0,
-                "type": "NORMAL",
-                "description": description,
-                "tags": ",".join(tag for tag in tags if tag),
-            },
-        )
-        playlist = payload.get("playlist") or {}
-        playlist_id = playlist.get("id") or payload.get("id")
-        return {
-            "id": playlist_id,
-            "name": playlist.get("name", name),
-            "url": f"https://music.163.com/#/playlist?id={playlist_id}",
-        }
-
-    def add_tracks(self, playlist_id: int, track_ids: Iterable[int]) -> dict[str, Any]:
-        self._require_cookie()
-        ids = [int(track_id) for track_id in track_ids]
-        if not ids:
-            raise NeteaseAPIError("at least one track ID is required")
-        added = 0
-        for start in range(0, len(ids), 100):
-            chunk = ids[start : start + 100]
-            self._request(
-                "/api/playlist/manipulate/tracks",
-                method="POST",
-                data={
-                    "op": "add",
-                    "pid": playlist_id,
-                    "trackIds": json.dumps(chunk, separators=(",", ":")),
-                    "imme": "true",
-                },
-            )
-            added += len(chunk)
-        return {
-            "playlist_id": playlist_id,
-            "added": added,
-            "url": f"https://music.163.com/#/playlist?id={playlist_id}",
-        }
 
     def list_playlists(self, uid: int | None = None, limit: int = 100) -> list[dict[str, Any]]:
         if uid is None:

@@ -1,15 +1,19 @@
-"""Agent-native Click CLI for NetEase playlist management."""
+"""Agent-native CLI for NetEase playlist content operations."""
 from __future__ import annotations
 
 import json
 import shlex
-import sys
 from functools import wraps
 from typing import Callable
 
 import click
 
 from .core.client import NeteaseAPIError, NeteaseClient, parse_cookie_header
+from .core.official_cli import (
+    OfficialNcmCli,
+    OfficialNcmCliError,
+    validate_scenario_manifest,
+)
 
 
 def emit(ctx: click.Context, value: object) -> None:
@@ -30,7 +34,7 @@ def api_errors(func: Callable) -> Callable:
     def wrapped(*args, **kwargs):
         try:
             return func(*args, **kwargs)
-        except NeteaseAPIError as exc:
+        except (NeteaseAPIError, OfficialNcmCliError, ValueError) as exc:
             raise click.ClickException(str(exc)) from exc
 
     return wrapped
@@ -41,29 +45,34 @@ def client_from(ctx: click.Context) -> NeteaseClient:
     return NeteaseClient(cookie=obj.get("cookie"), base_url=obj.get("base_url", "https://music.163.com"))
 
 
+def official_from(ctx: click.Context) -> OfficialNcmCli:
+    return OfficialNcmCli(executable=(ctx.obj or {}).get("ncm_cli"))
+
+
 @click.group(invoke_without_command=True)
 @click.option("--json", "json_output", is_flag=True, help="Emit machine-readable JSON.")
-@click.option("--cookie", envvar="NETEASE_COOKIE", help="NetEase web Cookie header; never commit it.")
+@click.option("--cookie", envvar="NETEASE_COOKIE", help="Cookie for public/read compatibility only; never commit it.")
 @click.option("--base-url", envvar="NETEASE_BASE_URL", default="https://music.163.com", show_default=True)
+@click.option("--ncm-cli", "ncm_cli", envvar="NCM_CLI_BIN", help="Official @music163/ncm-cli executable.")
 @click.pass_context
-def cli(ctx: click.Context, json_output: bool, cookie: str | None, base_url: str) -> None:
-    """Create and manage NetEase Cloud Music playlists."""
+def cli(ctx: click.Context, json_output: bool, cookie: str | None, base_url: str, ncm_cli: str | None) -> None:
+    """Publish and maintain NetEase Cloud Music content through the official CLI."""
     ctx.ensure_object(dict)
-    ctx.obj.update({"json": json_output, "cookie": cookie, "base_url": base_url})
+    ctx.obj.update({"json": json_output, "cookie": cookie, "base_url": base_url, "ncm_cli": ncm_cli})
     if ctx.invoked_subcommand is None:
         repl_loop(ctx.obj)
 
 
 @cli.group()
 def auth() -> None:
-    """Authentication status."""
+    """Official ncm-cli authentication status."""
 
 
 @auth.command("status")
 @click.pass_context
 @api_errors
 def auth_status(ctx: click.Context) -> None:
-    emit(ctx, client_from(ctx).auth_status())
+    emit(ctx, official_from(ctx).auth_status())
 
 
 @cli.group()
@@ -83,48 +92,70 @@ def search_song(ctx: click.Context, keyword: str, limit: int, offset: int) -> No
 
 @cli.group()
 def playlist() -> None:
-    """Playlist management commands."""
+    """Playlist and content-operations commands."""
 
 
 @playlist.command("create")
 @click.option("--name", required=True)
 @click.option("--description", default="", show_default=True)
 @click.option("--tag", "tags", multiple=True)
-@click.option("--private", is_flag=True, help="Create a private playlist.")
+@click.option("--private", is_flag=True, help="Not supported by the official wrapper yet.")
 @click.option("--dry-run", is_flag=True, help="Print the write intent without calling NetEase.")
 @click.pass_context
 @api_errors
 def playlist_create(ctx: click.Context, name: str, description: str, tags: tuple[str, ...], private: bool, dry_run: bool) -> None:
-    intent = {"operation": "playlist.create", "name": name, "description": description, "tags": list(tags), "private": private}
+    if private:
+        raise click.UsageError("--private is not supported by the official ncm-cli write path")
+    intent = {"operation": "playlist.create", "name": name, "description": description, "tags": list(tags)}
     if dry_run:
         emit(ctx, {"dry_run": True, "request": intent})
         return
-    emit(ctx, client_from(ctx).create_playlist(name, description, tags, private))
+    official = official_from(ctx)
+    created = official.create_playlist(name)
+    data = created.get("data") or {}
+    playlist_id = data.get("id")
+    if not playlist_id:
+        raise OfficialNcmCliError("create returned no encrypted playlist ID")
+    if description:
+        official.update_description(playlist_id, description)
+    if tags:
+        official.update_tags(playlist_id, tags)
+    emit(ctx, created)
 
 
 @playlist.command("add")
-@click.option("--playlist-id", type=int, required=True)
-@click.option("--track-id", "track_ids", type=int, multiple=True)
-@click.option("--file", type=click.File("r", encoding="utf-8"), help="One numeric track ID per line or a JSON array.")
+@click.option("--playlist-id", required=True, help="Encrypted playlist ID from official ncm-cli.")
+@click.option("--encrypted-track-id", "encrypted_ids", multiple=True)
+@click.option("--file", type=click.File("r", encoding="utf-8"), help="JSON array or one encrypted song ID per line.")
 @click.option("--dry-run", is_flag=True, help="Print the write intent without calling NetEase.")
 @click.pass_context
 @api_errors
-def playlist_add(ctx: click.Context, playlist_id: int, track_ids: tuple[int, ...], file, dry_run: bool) -> None:
-    ids = list(track_ids)
+def playlist_add(ctx: click.Context, playlist_id: str, encrypted_ids: tuple[str, ...], file, dry_run: bool) -> None:
+    ids = list(encrypted_ids)
     if file:
         raw = file.read().strip()
         if raw:
             try:
                 loaded = json.loads(raw)
-                ids.extend(int(value) for value in loaded) if isinstance(loaded, list) else ids.append(int(loaded))
+                ids.extend(str(value) for value in loaded) if isinstance(loaded, list) else ids.append(str(loaded))
             except json.JSONDecodeError:
-                ids.extend(int(line.strip()) for line in raw.splitlines() if line.strip())
+                ids.extend(line.strip() for line in raw.splitlines() if line.strip())
     if not ids:
-        raise click.UsageError("provide at least one --track-id or --file")
+        raise click.UsageError("provide at least one --encrypted-track-id or --file")
     if dry_run:
-        emit(ctx, {"dry_run": True, "request": {"operation": "playlist.add", "playlist_id": playlist_id, "track_ids": ids}})
+        emit(ctx, {"dry_run": True, "request": {"operation": "playlist.add", "playlist_id": playlist_id, "track_count": len(ids)}})
         return
-    emit(ctx, client_from(ctx).add_tracks(playlist_id, ids))
+    emit(ctx, {"batches": official_from(ctx).add_tracks(playlist_id, ids), "track_count": len(ids)})
+
+
+@playlist.command("publish")
+@click.option("--manifest", type=click.File("r", encoding="utf-8"), required=True)
+@click.option("--dry-run", is_flag=True, help="Validate and preview without writing.")
+@click.pass_context
+@api_errors
+def playlist_publish(ctx: click.Context, manifest, dry_run: bool) -> None:
+    raw = json.load(manifest)
+    emit(ctx, official_from(ctx).publish(raw, dry_run=dry_run))
 
 
 @playlist.command("list")
@@ -142,7 +173,7 @@ def self_check(ctx: click.Context) -> None:
     parsed = parse_cookie_header("MUSIC_U=secret; __csrf=token")
     assert parsed["__csrf"] == "token"
     assert NeteaseClient().base_url == "https://music.163.com"
-    emit(ctx, {"ok": True, "checks": ["cookie parser", "client defaults"]})
+    emit(ctx, {"ok": True, "checks": ["cookie parser", "official adapter import", "scenario manifest validation available"]})
 
 
 def repl_loop(obj: dict) -> None:
@@ -158,7 +189,7 @@ def repl_loop(obj: dict) -> None:
         if line in {"quit", "exit"}:
             return
         if line == "help":
-            click.echo("auth status | search song --keyword TEXT | playlist create/add/list | quit")
+            click.echo("auth status | search song --keyword TEXT | playlist create/add/publish/list | quit")
             continue
         try:
             cli.main(args=shlex.split(line), standalone_mode=False, obj=obj)

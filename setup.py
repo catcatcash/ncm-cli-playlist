@@ -3,9 +3,9 @@ from setuptools import find_namespace_packages, setup
 
 setup(
     name="cli-anything-ncm-playlist",
-    version="0.1.0",
+    version="0.2.0",
     author="catcatcash",
-    description="CLI-Anything-style NetEase Cloud Music playlist management",
+    description="NetEase Cloud Music playlist content operations",
     long_description=open("README.md", encoding="utf-8").read(),
     long_description_content_type="text/markdown",
     url="https://github.com/catcatcash/ncm-cli-playlist",

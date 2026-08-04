@@ -4,10 +4,29 @@
 
 ```bash
 python -m pytest -q
-python -m cli_anything.ncm_playlist self-check
-python -m cli_anything.ncm_playlist --json playlist create --name demo --dry-run
+python -m cli_anything.ncm_playlist --json self-check
+python -m cli_anything.ncm_playlist --json playlist publish \
+  --manifest scenario-100.json \
+  --dry-run
 ```
 
-## Live checks
+## Official CLI check
 
-Live playlist writes require a user-provided `NETEASE_COOKIE`. Never put that value in a test fixture or commit it. Run a dry-run first, then create a disposable playlist and verify it with `playlist list`.
+The project delegates authenticated writes to `@music163/ncm-cli@0.1.6`:
+
+```bash
+ncm-cli login --check --output json
+NCM_CLI_BIN=/path/to/ncm-cli \
+  python -m cli_anything.ncm_playlist --json auth status
+```
+
+## Live publish check
+
+Use a disposable manifest only when a real write is intended. The command creates a playlist, adds and reorders all 100 encrypted song IDs, updates description/tags/cover, and verifies both the official CLI readback and the anonymous public playlist detail.
+
+```bash
+python -m cli_anything.ncm_playlist --json playlist publish \
+  --manifest scenario-100.json
+```
+
+The output must contain a numeric playlist URL, `cli_track_count: 100`, and `public_track_count: 100`. Never put CLI credentials, cookies, or account data in fixtures or commits.
