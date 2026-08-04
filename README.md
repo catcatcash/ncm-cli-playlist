@@ -39,6 +39,16 @@ cli-anything-ncm-playlist --json auth status
 
 The project does not store or print CLI credentials.
 
+## Tech stack
+
+- **Python 3.10+** — CLI and content-manifest validation
+- **Click** — command-line interface and `--dry-run` flow
+- **Requests** — public NetEase search and anonymous playlist readback
+- **Node.js/npm** — installs the official `@music163/ncm-cli@0.1.6`
+- **Official ncm-cli** — authenticated playlist creation, track writes, reordering, metadata and cover updates
+- **JSON manifests** — portable content packages for scenarioized 100-track playlists
+- **pytest** — local regression tests
+
 ## Scenario playlist content package
 
 A scenarioized 100-track playlist uses this title shape:
