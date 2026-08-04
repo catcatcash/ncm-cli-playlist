@@ -61,6 +61,8 @@ The description should stay short and human:
 2. the selection logic and boundary;
 3. concise music-history / genre context.
 
+The reusable project skill is documented in [`skills/netease-content-ops/SKILL.md`](skills/netease-content-ops/SKILL.md).
+
 Manifest shape (schematic; `tracks` must contain exactly 100 unique encrypted IDs):
 
 ```json
