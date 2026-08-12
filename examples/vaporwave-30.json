@@ -1,0 +1,220 @@
+{
+  "name": "虚拟的黄昏 | Vaporwave入门30专",
+  "description": "每张专辑只选一首代表曲，按首发时间从 2010 年 Eccojams 的萌芽一路听到当代的 mallsoft 与未来放送；这不是榜单复刻，而是一条从“采样废墟”到“虚拟怀旧”的听觉路径。\n\nVaporwave 是 2010 年代初诞生于互联网的电子音乐：慢放与变调的 80 年代流行采样、低保真合成器垫、消费主义符号（商场、雕塑、日文汉字）与旧数码影像构成了它的全部美学。它反讽消费社会，也迷恋旧物的温度；在 Bandcamp、YouTube 与 Tumblr 上完成传播，是第一个真正“出生在互联网上”的音乐类型。\n\n本歌单从 Chuck Person 的 Eccojams 与 Oneohtrix Point Never 的前史起步，经过 Macintosh Plus《Floral Shoppe》、James Ferraro 的“未来办公”声音、Saint Pepsi 与 Vektroid 的采样流行，进入 Blank Banshee、Eyeliner 的节拍化转向，再落到 2814、t e l e p a t h 的氛围线、猫 シ Corp. 的 mallsoft、death's dynamic shroud 与 Windows96 的当代延伸。\n\n参考与延伸阅读：Rate Your Music 的 Vaporwave / Vapor 类型页与社区评分；Pitchfork、The Guardian 的相关报道；Wikipedia、AllMusic 的风格史资料。具体发行日期、艺人、专辑和曲目以 MusicBrainz 与网易云元数据复核为准。",
+  "tags": [
+    "电子",
+    "器乐"
+  ],
+  "tracks": [
+    {
+      "encrypted_id": "E755EF20DCB8DED5C784D637D20ABDF8",
+      "date": "2010-03-22",
+      "artist": "Oneohtrix Point Never",
+      "album": "Returnal",
+      "track": "Returnal"
+    },
+    {
+      "encrypted_id": "34D4FB1828FF546C50B4033684087273",
+      "date": "2010-08-09",
+      "artist": "Chuck Person",
+      "album": "Chuck Person's Eccojams Vol. 1",
+      "track": "Eccojam A1"
+    },
+    {
+      "encrypted_id": "38B02400BE8D78150740BF801CB322D3",
+      "date": "2011-10-11",
+      "artist": "James Ferraro",
+      "album": "Far Side Virtual",
+      "track": "Global Lunch"
+    },
+    {
+      "encrypted_id": "5E0286FB24E5DA11D68BBF373EDA8FCA",
+      "date": "2011-12-09",
+      "artist": "Macintosh Plus",
+      "album": "Floral Shoppe",
+      "track": "リサフランク420 / 現代のコンピュー"
+    },
+    {
+      "encrypted_id": "EC09383DC1DDA16615318D893283CB3F",
+      "date": "2012-04-01",
+      "artist": "Saint Pepsi",
+      "album": "Hit Vibes",
+      "track": "Hit Vibes"
+    },
+    {
+      "encrypted_id": "E1B83CC48199F3C564D3A1D9AA3CFFC1",
+      "date": "2012-10-01",
+      "artist": "Blank Banshee",
+      "album": "Blank Banshee 0",
+      "track": "Teen Pregnancy"
+    },
+    {
+      "encrypted_id": "23D0E5B28CB9CC9BDD0D52C6C6071AB6",
+      "date": "2012-11-01",
+      "artist": "Vektroid",
+      "album": "Neo Cali",
+      "track": "Neo Miami"
+    },
+    {
+      "encrypted_id": "611CCF1F2088991ACAC27A262A29A486",
+      "date": "2013-07-01",
+      "artist": "Eyeliner",
+      "album": "Buy Now",
+      "track": "Payphone"
+    },
+    {
+      "encrypted_id": "115B274D86F6EE2EBC01764E9234A20A",
+      "date": "2013-10-01",
+      "artist": "Blank Banshee",
+      "album": "Blank Banshee 1",
+      "track": "Eco Zones"
+    },
+    {
+      "encrypted_id": "C34951EA27B7B41015C13C549D84A61C",
+      "date": "2013-10-01",
+      "artist": "Infinity Frequencies",
+      "album": "Computer Death",
+      "track": "Unearthed Statue"
+    },
+    {
+      "encrypted_id": "841704A9963FA8DD35BCEF7120D6BBB9",
+      "date": "2013-12-12",
+      "artist": "Luxury Elite",
+      "album": "World Class",
+      "track": "S.W.A.K."
+    },
+    {
+      "encrypted_id": "C68B6D90C2B68CCBC093BFD00F3B9792",
+      "date": "2014-11-01",
+      "artist": "猫 シ Corp.",
+      "album": "Palm Mall",
+      "track": "Congratulatory Message"
+    },
+    {
+      "encrypted_id": "5C329FD892F05F27F383CF40A8496B24",
+      "date": "2014-12-22",
+      "artist": "ESPRIT 空想",
+      "album": "Summer Night",
+      "track": "Summer Night"
+    },
+    {
+      "encrypted_id": "F1C1770751F83ADF2178B40A30615471",
+      "date": "2015-04-02",
+      "artist": "t e l e p a t h",
+      "album": "星間性交",
+      "track": "深夜の愛"
+    },
+    {
+      "encrypted_id": "9571C5A96B7714C8C9691B131EB15867",
+      "date": "2015-07-21",
+      "artist": "death's dynamic shroud",
+      "album": "I'll Try Living Like This",
+      "track": "Somebody Home"
+    },
+    {
+      "encrypted_id": "F8EC6379DEC153D4D75495963C9D189E",
+      "date": "2015-08-01",
+      "artist": "Nmesh",
+      "album": "Pharma",
+      "track": "Mall Full of Drugs"
+    },
+    {
+      "encrypted_id": "595B141D33CC0D6E1A40742E07AEED6A",
+      "date": "2016-10-06",
+      "artist": "luxury elite",
+      "album": "With Love",
+      "track": "Starlight"
+    },
+    {
+      "encrypted_id": "5C3DA3AD7A149B9D14DC0E40BA4A8B0D",
+      "date": "2017-04-01",
+      "artist": "VAPERROR",
+      "album": "Mana Pool",
+      "track": "Krystal GB"
+    },
+    {
+      "encrypted_id": "8118A615833881C3584EC6ECBFADA1E2",
+      "date": "2017-06-26",
+      "artist": "t e l e p a t h",
+      "album": "未来へ",
+      "track": "あなただけ"
+    },
+    {
+      "encrypted_id": "57F82184974412C9825594B761141B75",
+      "date": "2017-12-25",
+      "artist": "猫 シ Corp.",
+      "album": "Palm Mall Mars",
+      "track": "Virtual World Generator"
+    },
+    {
+      "encrypted_id": "391E8B383B2DB6F019B0B53BF64F810E",
+      "date": "2018-04-20",
+      "artist": "Windows96",
+      "album": "One Hundred Mornings",
+      "track": "Mind Mirage"
+    },
+    {
+      "encrypted_id": "D43469C3A958B62F8CE29021BFE8C093",
+      "date": "2018-04-27",
+      "artist": "George Clanton",
+      "album": "Slide",
+      "track": "Make It Forever"
+    },
+    {
+      "encrypted_id": "31828E6DC99AA060ADB14CEB05137295",
+      "date": "2018-06-22",
+      "artist": "death's dynamic shroud",
+      "album": "Faith In Persona",
+      "track": "Just to be Needed"
+    },
+    {
+      "encrypted_id": "CE11F803D90EDFB89BF199CCB80917CC",
+      "date": "2018-09-21",
+      "artist": "desert sand feels warm at night",
+      "album": "Tomorrow, 2096",
+      "track": "Constellation"
+    },
+    {
+      "encrypted_id": "77EAB973A19D57CACE328FE2AFA39B48",
+      "date": "2019-03-01",
+      "artist": "FM Skyline",
+      "album": "Advanced Memory Suite",
+      "track": "astral baths"
+    },
+    {
+      "encrypted_id": "BA5ED0560672A66514776A253D39631F",
+      "date": "2019-03-29",
+      "artist": "猫 シ Corp. & t e l e p a t h",
+      "album": "Building a Better World",
+      "track": "A New Life Awaits You"
+    },
+    {
+      "encrypted_id": "5F224725676CB83905FCA8BBB7A62063",
+      "date": "2019-05-03",
+      "artist": "MACROSS 82-99",
+      "album": "A Millions Miles Away",
+      "track": "Horsey"
+    },
+    {
+      "encrypted_id": "DC003267F61C334FE3438CB4758EFF05",
+      "date": "2019-11-08",
+      "artist": "2814",
+      "album": "The Eternal Dream System",
+      "track": "アルカディア"
+    },
+    {
+      "encrypted_id": "1148EEDE8B42F120B589576958ECBDBF",
+      "date": "2020-07-24",
+      "artist": "Windows96",
+      "album": "Enchanted Instrumentals and Whispers",
+      "track": "Deep Swim"
+    },
+    {
+      "encrypted_id": "251493625E029967C4EB7E65CE5B6BE8",
+      "date": "2022-03-18",
+      "artist": "haircuts for men",
+      "album": "理髪店 Beat 1995-1999",
+      "track": "美しさの無駄 (hfm barber chop edit)"
+    }
+  ]
+}
