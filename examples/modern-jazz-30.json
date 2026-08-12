@@ -1,10 +1,5 @@
 {
   "name": "流动的即兴 | 现代爵士入门30专",
-  "tags": [
-    "爵士",
-    "电子",
-    "说唱"
-  ],
   "tracks": [
     {
       "encrypted_id": "EB3FD617E039ADF2DB6DFD5DCF606975",
@@ -13,6 +8,13 @@
       "artist": "Miles Davis",
       "album": "In a Silent Way",
       "track": "Shhh / Peaceful"
+    },
+    {
+      "encrypted_id": "811A806B5E28B0484A9B9E83B84B455A",
+      "date": "1971-07-08",
+      "artist": "Alice Coltrane",
+      "album": "Journey in Satchidananda",
+      "track": "Journey In Satchidananda"
     },
     {
       "encrypted_id": "833756932567E35B7E78A6E686E4D1BD",
@@ -39,36 +41,25 @@
       "track": "Are You Going with Me?"
     },
     {
-      "encrypted_id": "27126786647CD650C4386DFEEE32C151",
-      "original_id": 16330732,
-      "date": "1991-09-24",
-      "artist": "A Tribe Called Quest",
-      "album": "The Low End Theory",
-      "track": "Jazz (We've Got)"
+      "encrypted_id": "930A9C0E5F97F602EF2A095E904D7169",
+      "date": "1997-02-25",
+      "artist": "Brad Mehldau",
+      "album": "The Art of the Trio Volume One",
+      "track": "Blame It on My Youth"
     },
     {
-      "encrypted_id": "B4523017C7931713ED7A2ED980A28553",
-      "original_id": 17976477,
-      "date": "1993-05-18",
-      "artist": "Guru",
-      "album": "Jazzmatazz Volume 1",
-      "track": "Loungin'"
+      "encrypted_id": "A5F4CFC2D8105F30BA9308D214B47A5A",
+      "date": "1999-09-14",
+      "artist": "Esbjörn Svensson Trio",
+      "album": "From Gagarin's Point of View",
+      "track": "From Gagarin's Point of View"
     },
     {
-      "encrypted_id": "630494109F9FC5BA03539F0E61B9A5FE",
-      "original_id": 1217906,
-      "date": "1996-11-19",
-      "artist": "DJ Shadow",
-      "album": "Endtroducing.....",
-      "track": "Building Steam With a Grain of Salt"
-    },
-    {
-      "encrypted_id": "7B9B0AC2E3C0EBE925A77805B53F7897",
-      "original_id": 21918425,
-      "date": "1999-02-22",
-      "artist": "The Roots",
-      "album": "Things Fall Apart",
-      "track": "You Got Me"
+      "encrypted_id": "99FADE3AF88E29E36CF09352C3D08FD9",
+      "date": "2001-01-15",
+      "artist": "Kurt Rosenwinkel",
+      "album": "The Next Step",
+      "track": "Zhivago"
     },
     {
       "encrypted_id": "81EAB9CCB4754B667443D06A89D11A8B",
@@ -79,36 +70,18 @@
       "track": "All That You Give"
     },
     {
-      "encrypted_id": "B539BA68B6E325A493972A07C2FD6EB2",
-      "original_id": 1714510,
-      "date": "2003-06-24",
-      "artist": "Madlib",
-      "album": "Shades of Blue",
-      "track": "Mystic Bounce"
+      "encrypted_id": "C3A3FD7D6DD69B4D914E92E6DA1FCC49",
+      "date": "2006-08-08",
+      "artist": "Kenny Garrett",
+      "album": "Beyond the Wall",
+      "track": "Beyond the Wall"
     },
     {
-      "encrypted_id": "833747B48F820414019709F5E3EC2CD6",
-      "original_id": 22821119,
-      "date": "2003-08-21",
-      "artist": "Nujabes",
-      "album": "Metaphorical Music",
-      "track": "Blessing It (Remix)"
-    },
-    {
-      "encrypted_id": "9A2408A0B162065C5822B89E47D0FABB",
-      "original_id": 20631527,
-      "date": "2006-02-07",
-      "artist": "J Dilla",
-      "album": "Donuts",
-      "track": "Workinonit"
-    },
-    {
-      "encrypted_id": "D4A9FB0C84E6765E4F55C3C6B0E2124C",
-      "original_id": 22717912,
-      "date": "2008-07-16",
-      "artist": "Uyama Hiroto",
-      "album": "A Son of the Sun",
-      "track": "Ribbon In The Sea"
+      "encrypted_id": "BA8B221712ECC945BE2D1E82E224F723",
+      "date": "2011-05-10",
+      "artist": "Ambrose Akinmusire",
+      "album": "When the Heart Emerges Glistening",
+      "track": "Confessions to My Unborn Daughter"
     },
     {
       "encrypted_id": "B201268AB1FCCD0B359A7239196ABE87",
@@ -117,6 +90,13 @@
       "artist": "Robert Glasper",
       "album": "Black Radio",
       "track": "Afro Blue"
+    },
+    {
+      "encrypted_id": "9DE2D0E1DDAA87066FA45DF99C0DE74B",
+      "date": "2012-03-13",
+      "artist": "Vijay Iyer",
+      "album": "Accelerando",
+      "track": "Human Nature"
     },
     {
       "encrypted_id": "E3DCA048AC62881C8D3D178D6FD5B95B",
@@ -143,12 +123,11 @@
       "track": "Change of the Guard"
     },
     {
-      "encrypted_id": "35BF8EA7784C8D830A4533B63561BF6D",
-      "original_id": 36199508,
-      "date": "2015-11-06",
-      "artist": "Floating Points",
-      "album": "Elaenia",
-      "track": "Silhouettes (I, II & III)"
+      "encrypted_id": "88075E254CA417B296501AA1159A5E12",
+      "date": "2016-04-08",
+      "artist": "Mary Halvorson",
+      "album": "Away With You",
+      "track": "Away With You"
     },
     {
       "encrypted_id": "62EB7920D8CAC6165D31B3285609DA42",
@@ -157,14 +136,6 @@
       "artist": "Yussef Kamaal",
       "album": "Black Focus",
       "track": "Black Focus"
-    },
-    {
-      "encrypted_id": "A49A5DDD3B22C87881071483F0C277AE",
-      "original_id": 461518279,
-      "date": "2017-02-24",
-      "artist": "Thundercat",
-      "album": "Drunk",
-      "track": "Them Changes"
     },
     {
       "encrypted_id": "EB8C9848152353B79036FBE7035E374F",
@@ -191,6 +162,13 @@
       "track": "Broken Theme"
     },
     {
+      "encrypted_id": "DB7C64CF0CDB06CC46805C2C7FBC27D8",
+      "date": "2018-10-12",
+      "artist": "Jakob Bro",
+      "album": "Returnings",
+      "track": "Returnings"
+    },
+    {
       "encrypted_id": "C9929917CE9BEEFE6C7FE76BEE51D569",
       "original_id": 1301291457,
       "date": "2018-10-26",
@@ -215,6 +193,13 @@
       "track": "The Shared Stories of Rivals (KEITA)"
     },
     {
+      "encrypted_id": "CF5276C34CD87118B4F5DF2CB3488B89",
+      "date": "2020-08-21",
+      "artist": "Nubya Garcia",
+      "album": "Source",
+      "track": "Source"
+    },
+    {
       "encrypted_id": "EF7B6EE7FA8E7A3C41D054046DB4D5CB",
       "original_id": 1813948928,
       "date": "2021-03-26",
@@ -223,20 +208,19 @@
       "track": "Movement 1"
     },
     {
-      "encrypted_id": "81AAB766CE4CF982B6A61222C36B8C63",
-      "original_id": 1854845096,
-      "date": "2021-06-25",
-      "artist": "Hiatus Kaiyote",
-      "album": "Mood Valiant",
-      "track": "Get Sun"
-    },
-    {
       "encrypted_id": "39A14AC51675D13EC275F2B82A678B74",
       "original_id": 1873423343,
       "date": "2021-09-03",
       "artist": "Nala Sinephro",
       "album": "Space 1.8",
       "track": "Space 1"
+    },
+    {
+      "encrypted_id": "585590D2B2323D1F1CA549FA5B23A5CA",
+      "date": "2022-03-04",
+      "artist": "Cécile McLorin Salvant",
+      "album": "Ghost Song",
+      "track": "Ghost Song"
     },
     {
       "encrypted_id": "4EB8752366718A7ABAAC092C67191ECB",
